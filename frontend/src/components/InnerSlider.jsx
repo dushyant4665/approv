@@ -15,11 +15,11 @@ function InnerSlider({ videos, initialIndex, onClose }) {
   const videoRef = useRef(null);
   const currentVideo = videos[currentIndex];
 
-  // Get 3 videos to show (previous, current, next)
+
   const getVisibleVideos = () => {
     const visible = [];
     
-    // Previous video
+
     if (currentIndex > 0) {
       visible.push({
         video: videos[currentIndex - 1],
@@ -28,14 +28,12 @@ function InnerSlider({ videos, initialIndex, onClose }) {
       });
     }
     
-    // Current video (center)
     visible.push({
       video: currentVideo,
       position: 'center',
       index: currentIndex
     });
     
-    // Next video
     if (currentIndex < videos.length - 1) {
       visible.push({
         video: videos[currentIndex + 1],
@@ -82,12 +80,12 @@ function InnerSlider({ videos, initialIndex, onClose }) {
     video.addEventListener('loadeddata', handleLoadedData);
 
     // trigger load in case the source changed
-    try { video.load(); } catch (err) { /* ignore */ }
+    try { video.load(); } catch (err) 
 
     return () => {
       mounted = false;
-      try { video.pause(); } catch (err) { /* ignore */ }
-      try { video.removeAttribute('src'); video.load(); } catch (err) { /* ignore */ }
+      try { video.pause(); } catch (err) 
+      try { video.removeAttribute('src'); video.load(); } catch (err) 
       video.removeEventListener('canplay', onCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
     };
@@ -214,7 +212,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
   return (
     <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
       
-      {/* Close Button */}
+  
       <button
         onClick={onClose}
         className="absolute top-4 right-4 bg-white/20 hover:bg-white/30 p-2 rounded-full z-50"
@@ -224,7 +222,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
         </svg>
       </button>
 
-      {/* 3 Videos Carousel */}
+   
       <div className="flex items-center justify-center gap-4 w-full max-w-7xl px-4">
         
         {visibleVideos.map(({ video, position, index }) => (
@@ -237,17 +235,17 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                 : 'w-64 h-[450px] scale-90 opacity-60 hover:opacity-80'
             }`}
           >
-            {/* Video/Thumbnail */}
+  
             {position === 'center' ? (
               <>
-                {/* Loading Spinner for Center Video */}
+            
                 {isLoading && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black z-20">
                     <div className="w-16 h-16 border-4 border-white/30 border-t-white rounded-full animate-spin" />
                   </div>
                 )}
                 
-                {/* Main Video */}
+          
                 <video
                   ref={videoRef}
                   src={video.videoUrl}
@@ -256,7 +254,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                   playsInline
                 />
 
-                {/* Video Controls */}
+            
                 <VideoControls
                   isPlaying={isPlaying}
                   isMuted={isMuted}
@@ -266,16 +264,16 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                   onSeek={handleSeek}
                 />
 
-                {/* Video Info */}
+           
                 <div className="absolute top-4 left-4 right-4">
                   <h2 className="text-white text-xl font-bold mb-1">{video.title}</h2>
                   <p className="text-gray-300 text-sm">{video.description}</p>
                 </div>
 
-                {/* Action Buttons */}
+             
                 <div className="absolute right-4 bottom-32 flex flex-col gap-4">
                   
-                  {/* Like */}
+                 
                   <button onClick={handleLike} className="flex flex-col items-center">
                     <div className={`p-3 rounded-full ${isLiked ? 'bg-red-500' : 'bg-white/20'}`}>
                       <span className="text-2xl">{isLiked ? '❤️' : '🤍'}</span>
@@ -283,7 +281,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                     <span className="text-white text-sm mt-1">{likes}</span>
                   </button>
 
-                  {/* Share */}
+                  
                   <div className="relative">
                     <button onClick={() => setShowShareMenu(!showShareMenu)} className="flex flex-col items-center">
                       <div className="p-3 rounded-full bg-white/20">
@@ -310,7 +308,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                     )}
                   </div>
 
-                  {/* Comments */}
+              
                   <button className="flex flex-col items-center">
                     <div className="p-3 rounded-full bg-white/20">
                       <span className="text-2xl">💬</span>
@@ -320,7 +318,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
                 </div>
               </>
             ) : (
-              // Side videos (thumbnails)
+              
               <>
                 <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent" />
@@ -333,7 +331,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
         ))}
       </div>
 
-      {/* Video Counter */}
+   
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-sm">
         {currentIndex + 1} / {videos.length}
       </div>
