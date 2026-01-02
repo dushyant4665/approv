@@ -1,13 +1,9 @@
-// Import karo JSON file
-const videosData = require('../data/videos.json');
 
-// ========== GET ALL VIDEOS ==========
-// Endpoint: GET /api/videos
-// Kaam: Sab videos return karo
+const videosData = require('../data/videos.json');
 
 const getVideos = (req, res) => {
   try {
-    // Simply videos array return kar do
+
     res.status(200).json({
       success: true,
       count: videosData.videos.length,
@@ -21,16 +17,13 @@ const getVideos = (req, res) => {
   }
 };
 
-// ========== LIKE VIDEO ==========
-// Endpoint: POST /api/like
-// Body: { videoId: 1 }
-// Kaam: Video ka like count badhao
+
 
 const likeVideo = (req, res) => {
   try {
     const { videoId } = req.body;
     
-    // Validation: videoId hai ya nahi
+
     if (!videoId) {
       return res.status(400).json({
         success: false,
@@ -38,10 +31,10 @@ const likeVideo = (req, res) => {
       });
     }
     
-    // Video dhundo
+
     const video = videosData.videos.find(v => v.id === parseInt(videoId));
     
-    // Agar video nahi mila
+
     if (!video) {
       return res.status(404).json({
         success: false,
@@ -49,10 +42,10 @@ const likeVideo = (req, res) => {
       });
     }
     
-    // Like count badhao
+
     video.likes = video.likes + 1;
     
-    // Response bhejo
+
     res.status(200).json({
       success: true,
       message: 'Video liked successfully',
@@ -68,16 +61,10 @@ const likeVideo = (req, res) => {
   }
 };
 
-// ========== SHARE VIDEO ==========
-// Endpoint: POST /api/share
-// Body: { videoId: 1, platform: 'whatsapp' }
-// Kaam: Share count badhao
-
 const shareVideo = (req, res) => {
   try {
     const { videoId, platform } = req.body;
     
-    // Validation
     if (!videoId) {
       return res.status(400).json({
         success: false,
@@ -85,10 +72,8 @@ const shareVideo = (req, res) => {
       });
     }
     
-    // Video dhundo
     const video = videosData.videos.find(v => v.id === parseInt(videoId));
     
-    // Agar video nahi mila
     if (!video) {
       return res.status(404).json({
         success: false,
@@ -96,10 +81,8 @@ const shareVideo = (req, res) => {
       });
     }
     
-    // Share count badhao
     video.shares = video.shares + 1;
     
-    // Response bhejo
     res.status(200).json({
       success: true,
       message: `Video shared on ${platform || 'unknown platform'}`,
@@ -115,16 +98,11 @@ const shareVideo = (req, res) => {
   }
 };
 
-// ========== ADD COMMENT ==========
-// Endpoint: POST /api/comment
-// Body: { videoId: 1, comment: 'Nice video!' }
-// Kaam: Comment add karo
 
 const addComment = (req, res) => {
   try {
     const { videoId, comment } = req.body;
     
-    // Validation
     if (!videoId || !comment) {
       return res.status(400).json({
         success: false,
@@ -132,10 +110,8 @@ const addComment = (req, res) => {
       });
     }
     
-    // Video dhundo
     const video = videosData.videos.find(v => v.id === parseInt(videoId));
     
-    // Agar video nahi mila
     if (!video) {
       return res.status(404).json({
         success: false,
@@ -143,7 +119,6 @@ const addComment = (req, res) => {
       });
     }
     
-    // Comment add karo
     const newComment = {
       id: video.comments.length + 1,
       text: comment,
@@ -152,7 +127,6 @@ const addComment = (req, res) => {
     
     video.comments.push(newComment);
     
-    // Response bhejo
     res.status(201).json({
       success: true,
       message: 'Comment added successfully',
@@ -168,7 +142,6 @@ const addComment = (req, res) => {
   }
 };
 
-// Export karo
 module.exports = {
   getVideos,
   likeVideo,
