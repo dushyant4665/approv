@@ -12,7 +12,7 @@ function VideoCard({ video, onClick }) {
     if (isLiked) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/like', {
+      const response = await fetch('http://localhost:5000/api/like'|| 'https://approv-nine.vercel.app/api/like', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ videoId: video.id })
