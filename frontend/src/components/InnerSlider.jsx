@@ -179,7 +179,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
 
   const handleShare = async (platform) => {
     try {
-      const response = await fetch('http://localhost:5000/api/share', {
+      const response = await fetch('http://localhost:5000/api/share' || 'https://approv-nine.vercel.app/api/share', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
