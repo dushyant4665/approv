@@ -9,7 +9,6 @@ function OuterSlider() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const scrollContainerRef = useRef(null);
 
-  // Fetch videos from backend
   useEffect(() => {
     fetchVideos();
   }, []);
@@ -29,18 +28,15 @@ function OuterSlider() {
     }
   };
 
-  // Video card click - open modal
   const handleVideoClick = (video, index) => {
     setSelectedVideo(video);
     setSelectedIndex(index);
   };
 
-  // Close modal
   const handleCloseModal = () => {
     setSelectedVideo(null);
   };
 
-  // Scroll left
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({
       left: -600,
@@ -48,7 +44,6 @@ function OuterSlider() {
     });
   };
 
-  // Scroll right
   const scrollRight = () => {
     scrollContainerRef.current.scrollBy({
       left: 600,
@@ -66,7 +61,6 @@ function OuterSlider() {
 
   return (
     <div className="min-h-screen bg-black py-8">
-      {/* Header */}
       <div className="container mx-auto px-4 mb-8">
         <h1 className="text-4xl font-bold text-white mb-2">
           Socially Approved
@@ -76,10 +70,8 @@ function OuterSlider() {
         </p>
       </div>
 
-      {/* Carousel Container */}
       <div className="relative container mx-auto px-4">
         
-        {/* Left Arrow */}
         <button
           onClick={scrollLeft}
           className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full"
@@ -88,8 +80,6 @@ function OuterSlider() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
-
-        {/* Videos Slider */}
         <div
           ref={scrollContainerRef}
           className="flex gap-4 overflow-x-auto hide-scrollbar scroll-smooth pb-4"
@@ -103,7 +93,6 @@ function OuterSlider() {
           ))}
         </div>
 
-        {/* Right Arrow */}
         <button
           onClick={scrollRight}
           className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/60 hover:bg-black/80 text-white p-3 rounded-full"
@@ -114,7 +103,6 @@ function OuterSlider() {
         </button>
       </div>
 
-      {/* Inner Slider Modal */}
       {selectedVideo && (
         <InnerSlider
           videos={videos}
