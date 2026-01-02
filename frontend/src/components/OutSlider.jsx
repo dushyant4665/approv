@@ -16,7 +16,7 @@ function OuterSlider() {
 
   const fetchVideos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/videos');
+      const response = await fetch('http://localhost:5000/api/videos' || 'https://approv-nine.vercel.app/api/videos');
       const data = await response.json();
       
       if (data.success) {
