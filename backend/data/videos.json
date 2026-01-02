@@ -1,0 +1,304 @@
+{
+  "videos": [
+    {
+      "id": 1,
+      "title": "Amazing Product Review",
+      "description": "Check out this amazing product",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=1",
+      "likes": 125,
+      "shares": 45,
+      "comments": []
+    },
+    {
+      "id": 2,
+      "title": "Travel Vlog - Bali",
+      "description": "My trip to beautiful Bali",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=2",
+      "likes": 234,
+      "shares": 78,
+      "comments": []
+    },
+    {
+      "id": 3,
+      "title": "Cooking Tutorial",
+      "description": "Learn how to make pasta",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=3",
+      "likes": 567,
+      "shares": 123,
+      "comments": []
+    },
+    {
+      "id": 4,
+      "title": "Tech Review",
+      "description": "Latest smartphone review",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=4",
+      "likes": 890,
+      "shares": 234,
+      "comments": []
+    },
+    {
+      "id": 5,
+      "title": "Fitness Routine",
+      "description": "10 minute home workout",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=5",
+      "likes": 445,
+      "shares": 89,
+      "comments": []
+    },
+    {
+      "id": 6,
+      "title": "Music Cover",
+      "description": "Guitar cover of popular song",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=6",
+      "likes": 678,
+      "shares": 145,
+      "comments": []
+    },
+    {
+      "id": 7,
+      "title": "Food Review",
+      "description": "Best restaurants in Mumbai",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=7",
+      "likes": 321,
+      "shares": 67,
+      "comments": []
+    },
+    {
+      "id": 8,
+      "title": "DIY Craft",
+      "description": "Easy home decoration ideas",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=8",
+      "likes": 234,
+      "shares": 45,
+      "comments": []
+    },
+    {
+      "id": 9,
+      "title": "Gaming Highlights",
+      "description": "Epic gaming moments",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=9",
+      "likes": 789,
+      "shares": 189,
+      "comments": []
+    },
+    {
+      "id": 10,
+      "title": "Fashion Haul",
+      "description": "Winter collection 2024",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=10",
+      "likes": 456,
+      "shares": 98,
+      "comments": []
+    },
+    {
+      "id": 11,
+      "title": "Pet Compilation",
+      "description": "Funny cat videos",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=11",
+      "likes": 1234,
+      "shares": 345,
+      "comments": []
+    },
+    {
+      "id": 12,
+      "title": "Study Tips",
+      "description": "How to prepare for exams",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=12",
+      "likes": 567,
+      "shares": 123,
+      "comments": []
+    },
+    {
+      "id": 13,
+      "title": "Art Tutorial",
+      "description": "Watercolor painting basics",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=13",
+      "likes": 345,
+      "shares": 78,
+      "comments": []
+    },
+    {
+      "id": 14,
+      "title": "Car Review",
+      "description": "New electric car test drive",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=14",
+      "likes": 890,
+      "shares": 234,
+      "comments": []
+    },
+    {
+      "id": 15,
+      "title": "Dance Performance",
+      "description": "Classical dance showcase",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=15",
+      "likes": 678,
+      "shares": 156,
+      "comments": []
+    },
+    {
+      "id": 16,
+      "title": "Photography Tips",
+      "description": "How to take better photos",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=16",
+      "likes": 456,
+      "shares": 89,
+      "comments": []
+    },
+    {
+      "id": 17,
+      "title": "Comedy Skit",
+      "description": "Funny office situations",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=17",
+      "likes": 987,
+      "shares": 267,
+      "comments": []
+    },
+    {
+      "id": 18,
+      "title": "Gardening Guide",
+      "description": "How to grow tomatoes",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=18",
+      "likes": 345,
+      "shares": 67,
+      "comments": []
+    },
+    {
+      "id": 19,
+      "title": "Book Review",
+      "description": "Must-read books of 2024",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=19",
+      "likes": 234,
+      "shares": 45,
+      "comments": []
+    },
+    {
+      "id": 20,
+      "title": "Motivation Speech",
+      "description": "Never give up on your dreams",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=20",
+      "likes": 1567,
+      "shares": 456,
+      "comments": []
+    },
+    {
+      "id": 21,
+      "title": "Unboxing New Phone",
+      "description": "iPhone 15 Pro Max unboxing",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=21",
+      "likes": 789,
+      "shares": 178,
+      "comments": []
+    },
+    {
+      "id": 22,
+      "title": "Bike Stunt",
+      "description": "Extreme bike tricks",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=22",
+      "likes": 1234,
+      "shares": 345,
+      "comments": []
+    },
+    {
+      "id": 23,
+      "title": "Makeup Tutorial",
+      "description": "Natural makeup look",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=23",
+      "likes": 567,
+      "shares": 123,
+      "comments": []
+    },
+    {
+      "id": 24,
+      "title": "Science Experiment",
+      "description": "Cool chemistry experiments",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=24",
+      "likes": 456,
+      "shares": 98,
+      "comments": []
+    },
+    {
+      "id": 25,
+      "title": "Architecture Tour",
+      "description": "Modern building designs",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=25",
+      "likes": 345,
+      "shares": 67,
+      "comments": []
+    },
+    {
+      "id": 26,
+      "title": "Business Tips",
+      "description": "How to start a startup",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=26",
+      "likes": 890,
+      "shares": 234,
+      "comments": []
+    },
+    {
+      "id": 27,
+      "title": "Wildlife Documentary",
+      "description": "Tigers in their natural habitat",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=27",
+      "likes": 678,
+      "shares": 156,
+      "comments": []
+    },
+    {
+      "id": 28,
+      "title": "Yoga Session",
+      "description": "Morning yoga routine",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=28",
+      "likes": 456,
+      "shares": 89,
+      "comments": []
+    },
+    {
+      "id": 29,
+      "title": "Magic Tricks",
+      "description": "Learn card tricks",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_2mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=29",
+      "likes": 789,
+      "shares": 189,
+      "comments": []
+    },
+    {
+      "id": 30,
+      "title": "Meditation Guide",
+      "description": "5 minute mindfulness meditation",
+      "videoUrl": "https://sample-videos.com/video321/mp4/720/big_buck_bunny_720p_5mb.mp4",
+      "thumbnail": "https://picsum.photos/400/300?random=30",
+      "likes": 567,
+      "shares": 123,
+      "comments": []
+    }
+  ]
+}
