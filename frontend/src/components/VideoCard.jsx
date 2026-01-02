@@ -1,0 +1,105 @@
+import React, { useState } from 'react';
+
+function VideoCard({ video, onClick }) {
+  const [likes, setLikes] = useState(video.likes);
+  const [isLiked, setIsLiked] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // IntersectionObserver removed: this card only shows a thumbnail in the grid.
+
+  const handleLike = async (e) => {
+    e.stopPropagation();
+    if (isLiked) return;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/like', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoId: video.id })
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setLikes(data.likes);
+        setIsLiked(true);
+      }
+    } catch (error) {
+      console.log('Error:', error);
+    }
+  };
+
+  return (
+    <div 
+      onClick={onClick}
+      className="relative bg-gray-900 rounded-lg overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 flex-shrink-0"
+      style={{ width: '200px', height: '280px' }}
+    >
+      {/* Loading Spinner */}
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/50 z-10">
+          <div className="w-12 h-12 border-4 border-white/30 border-t-white rounded-full animate-spin" />
+        </div>
+      )}
+
+      {/* Video Thumbnail */}
+      <img
+        src={video.thumbnail}
+        alt={video.title}
+        className="w-full h-full object-cover"
+        onLoad={() => setIsLoading(false)}
+      />
+
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+      {/* Content */}
+      <div className="absolute bottom-0 left-0 right-0 p-3">
+        {/* Title */}
+        <h3 className="text-white font-semibold text-sm mb-2 line-clamp-2">
+          {video.title}
+        </h3>
+        
+        {/* Stats Row - JAISE IMAGE MEIN HAI */}
+        <div className="flex items-center gap-3 text-xs text-gray-300">
+          {/* Views */}
+          <div className="flex items-center gap-1">
+            <span>👁️</span>
+            <span>{video.views || 1234}</span>
+          </div>
+
+          {/* Likes */}
+          <button
+            onClick={handleLike}
+            className={`flex items-center gap-1 ${isLiked ? 'text-red-500' : ''}`}
+          >
+            <span>{isLiked ? '❤️' : '🤍'}</span>
+            <span>{likes}</span>
+          </button>
+
+          {/* Shares */}
+          <div className="flex items-center gap-1">
+            <span>↗️</span>
+            <span>{video.shares}</span>
+          </div>
+
+          {/* Comments */}
+          <div className="flex items-center gap-1">
+            <span>💬</span>
+            <span>{video.comments?.length || 0}</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Play Icon */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div className="bg-black/50 rounded-full p-3">
+          <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default VideoCard;
