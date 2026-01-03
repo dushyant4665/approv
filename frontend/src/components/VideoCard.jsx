@@ -6,6 +6,9 @@ function VideoCard({ video, onClick }) {
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isLiking, setIsLiking] = useState(false);
+  const [shares, setShares] = useState(video.shares);
+  const [showShareMenu, setShowShareMenu] = useState(false);
+  const [isSharing, setIsSharing] = useState(false);
 
   const handleLike = async (e) => {
     e.stopPropagation();
@@ -29,6 +32,33 @@ function VideoCard({ video, onClick }) {
       alert('Unable to like the video. Please try again.');
     }
     setIsLiking(false);
+  };
+
+  const handleShare = async (e, platform) => {
+    e.stopPropagation();
+    if (isSharing) return;
+    setIsSharing(true);
+    try {
+      const response = await fetch(`${API_BASE}/api/share`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ videoId: video.id, platform })
+      });
+      const data = await response.json();
+      if (data.success) {
+        setShares(data.shares);
+        setShowShareMenu(false);
+        const link = `${window.location.origin}/video/${video.id}`;
+        try { await navigator.clipboard.writeText(link); } catch (err) { }
+        alert('Link copied!');
+      } else {
+        alert('Share failed.');
+      }
+    } catch (err) {
+      console.log('Error:', err);
+      alert('Unable to share.');
+    }
+    setIsSharing(false);
   };
 
   return (
@@ -78,9 +108,28 @@ function VideoCard({ video, onClick }) {
           </button>
 
   
-          <div className="flex items-center gap-1">
-            <span>↗️</span>
-            <span>{video.shares}</span>
+          <div className="relative">
+            <button onClick={(e) => { e.stopPropagation(); setShowShareMenu(!showShareMenu); }} className="flex items-center gap-1" disabled={isSharing}>
+              <span>↗️</span>
+              <span>{shares}</span>
+            </button>
+
+            {showShareMenu && (
+              <div className="absolute bottom-full right-0 mb-2 bg-gray-900 rounded-lg p-2 w-44 shadow-lg">
+                <button onClick={(e) => handleShare(e, 'whatsapp')} className="w-full text-left px-3 py-2 text-white hover:bg-white/10 rounded">
+                  📱 WhatsApp
+                </button>
+                <button onClick={(e) => handleShare(e, 'facebook')} className="w-full text-left px-3 py-2 text-white hover:bg-white/10 rounded">
+                  📘 Facebook
+                </button>
+                <button onClick={(e) => handleShare(e, 'twitter')} className="w-full text-left px-3 py-2 text-white hover:bg-white/10 rounded">
+                  🐦 Twitter
+                </button>
+                <button onClick={(e) => handleShare(e, 'copy')} className="w-full text-left px-3 py-2 text-white hover:bg-white/10 rounded">
+                  🔗 Copy Link
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="flex items-center gap-1">
