@@ -12,6 +12,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
   const [isLiked, setIsLiked] = useState(false);
   const [showShareMenu, setShowShareMenu] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSharing, setIsSharing] = useState(false);
   
   const videoRef = useRef(null);
   const currentVideo = videos[currentIndex];
@@ -175,13 +176,15 @@ function InnerSlider({ videos, initialIndex, onClose }) {
   };
 
   const handleShare = async (platform) => {
+    if (isSharing) return;
+    setIsSharing(true);
     try {
       const response = await fetch(`${API_BASE}/api/share`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           videoId: currentVideo.id,
-          platform 
+          platform
         })
       });
 
@@ -190,12 +193,16 @@ function InnerSlider({ videos, initialIndex, onClose }) {
         setShares(data.shares);
         setShowShareMenu(false);
         const link = `${window.location.origin}/video/${currentVideo.id}`;
-        navigator.clipboard.writeText(link);
+        try { await navigator.clipboard.writeText(link); } catch (e) { /* ignore */ }
         alert('Link copied!');
+      } else {
+        alert('Share failed. Please try again.');
       }
     } catch (error) {
       console.log('Error:', error);
+      alert('Unable to share. Please check your network or try later.');
     }
+    setIsSharing(false);
   };
 
   useEffect(() => {

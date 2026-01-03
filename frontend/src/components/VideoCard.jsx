@@ -5,10 +5,12 @@ function VideoCard({ video, onClick }) {
   const [likes, setLikes] = useState(video.likes);
   const [isLiked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isLiking, setIsLiking] = useState(false);
 
   const handleLike = async (e) => {
     e.stopPropagation();
-    if (isLiked) return;
+    if (isLiked || isLiking) return;
+    setIsLiking(true);
 
     try {
       const response = await fetch(`${API_BASE}/api/like`, {
@@ -24,7 +26,9 @@ function VideoCard({ video, onClick }) {
       }
     } catch (error) {
       console.log('Error:', error);
+      alert('Unable to like the video. Please try again.');
     }
+    setIsLiking(false);
   };
 
   return (
@@ -67,6 +71,7 @@ function VideoCard({ video, onClick }) {
           <button
             onClick={handleLike}
             className={`flex items-center gap-1 ${isLiked ? 'text-red-500' : ''}`}
+            disabled={isLiking}
           >
             <span>{isLiked ? '❤️' : '🤍'}</span>
             <span>{likes}</span>
