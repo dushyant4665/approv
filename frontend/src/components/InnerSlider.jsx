@@ -52,8 +52,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
     let mounted = true;
     setIsLoading(true);
 
-    // Stop any previous playback and reset UI
-    try { if (!video.paused) video.pause(); } catch (err) { /* ignore */ }
+  try { if (!video.paused) video.pause(); } catch (err) { }
     setIsPlaying(false);
     setProgress(0);
 
@@ -79,13 +78,12 @@ function InnerSlider({ videos, initialIndex, onClose }) {
     video.addEventListener('canplay', onCanPlay);
     video.addEventListener('loadeddata', handleLoadedData);
 
-    // trigger load in case the source changed
-    try { video.load(); } catch (err) 
+  try { video.load(); } catch (err) { }
 
     return () => {
       mounted = false;
-      try { video.pause(); } catch (err) 
-      try { video.removeAttribute('src'); video.load(); } catch (err) 
+      try { video.pause(); } catch (err) { }
+      try { video.removeAttribute('src'); video.load(); } catch (err) { }
       video.removeEventListener('canplay', onCanPlay);
       video.removeEventListener('loadeddata', handleLoadedData);
     };
