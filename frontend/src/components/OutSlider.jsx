@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import VideoCard from './VideoCard';
 import InnerSlider from './InnerSlider';
+import API_BASE from '../api';
 
 function OuterSlider() {
   const [videos, setVideos] = useState([]);
@@ -15,7 +16,7 @@ function OuterSlider() {
 
   const fetchVideos = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/videos' || 'https://approv-nine.vercel.app/api/videos');
+      const response = await fetch(`${API_BASE}/api/videos`);
       const data = await response.json();
       
       if (data.success) {

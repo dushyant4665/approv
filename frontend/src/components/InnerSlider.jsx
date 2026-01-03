@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import VideoControls from './VideoControls';
+import API_BASE from '../api';
 
 function InnerSlider({ videos, initialIndex, onClose }) {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -157,7 +158,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
     if (isLiked) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/like', {
+      const response = await fetch(`${API_BASE}/api/like`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ videoId: currentVideo.id })
@@ -175,7 +176,7 @@ function InnerSlider({ videos, initialIndex, onClose }) {
 
   const handleShare = async (platform) => {
     try {
-      const response = await fetch('http://localhost:5000/api/share' || 'https://approv-nine.vercel.app/api/share', {
+      const response = await fetch(`${API_BASE}/api/share`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
